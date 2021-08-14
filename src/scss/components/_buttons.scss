@@ -1,5 +1,6 @@
 .button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding: 12px 32px;
   border: 0;
   // background-color: #fff;
@@ -15,5 +16,9 @@
   &.is-primary {
     color: $color__white;
     background-color: $color__primary;
+  }
+  &.is-secondary {
+    color: $color__black;
+    background-color: rgba(0, 0, 0, 0.1);
   }
 }

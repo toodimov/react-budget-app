@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import AddNewTransaction from "./pages/AddNewTransaction";
+import EditTransaction from "./pages/EditTransaction";
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
 
           <Route path="/add" exact>
             <AddNewTransaction />
+          </Route>
+
+          <Route path="/edit/:id">
+            <EditTransaction />
           </Route>
         </Switch>
       </Router>

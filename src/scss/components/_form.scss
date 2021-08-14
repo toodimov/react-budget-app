@@ -1,0 +1,123 @@
+.form {
+  margin-top: 6rem;
+  max-width: 51rem;
+
+  label {
+    @extend %body-text;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  input {
+    @extend %body-text;
+    background-color: #f4f4fc;
+    padding: 1.2rem 1.6rem;
+    border: 0;
+    outline: none;
+    border-radius: 8px;
+
+    &:focus {
+      background-color: rgba(36, 28, 196, 0.08);
+    }
+  }
+
+  input[type="text"] {
+    width: 100%;
+  }
+  input[type="number"] {
+    width: 100%;
+    max-width: 238px;
+  }
+
+  .radio-group {
+    margin-bottom: 3.2rem;
+  }
+
+  &__group {
+    margin-bottom: 2.4rem;
+
+    &.is-radio {
+      display: inline-flex;
+      align-items: center;
+
+      input {
+        display: none;
+      }
+
+      label {
+        position: relative;
+        padding: 1.2rem 1.6rem;
+        padding-left: 4.5rem;
+        margin-bottom: 0;
+        // background-color: hsla(243, 75%, 44%, 0.05);
+        border-radius: 0.8rem;
+        margin-right: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: hsla(243, 75%, 44%, 0.05);
+        }
+      }
+
+      span {
+        height: 2.2rem;
+        width: 2.2rem;
+        border: 2px solid #000;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        left: 1.2rem;
+        // top: 1px;
+
+        &::after {
+          content: "";
+          display: block;
+          height: 1rem;
+          width: 1rem;
+          border-radius: 50%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: $color__primary;
+          opacity: 0;
+          transition: opacity 0.2s;
+        }
+      }
+
+      input:checked ~ label span:after {
+        opacity: 1;
+      }
+      input:checked ~ label span {
+        border-color: $color__primary;
+      }
+      input:checked ~ label {
+        background-color: hsla(243, 75%, 44%, 0.05);
+      }
+    }
+  }
+
+  &__buttons {
+    margin-top: 4rem;
+  }
+  .button.is-secondary {
+    margin-left: 1rem;
+  }
+
+  .button {
+    @extend %body-text;
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

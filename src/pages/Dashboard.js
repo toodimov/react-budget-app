@@ -67,27 +67,8 @@ const Dashboard = () => {
               amount={item.amount}
               type={item.type}
               key={item.id}
+              id={item.id}
             />
-
-            // <div className="dashboard__transaction__item" key={id}>
-            //   <p>{item.title}</p>
-
-            //   <span className={item.type === "expense" ? "expense" : "income"}>
-            //     €{item.amount}
-            //   </span>
-
-            //   <div className="controls">
-            //     <button className="controls__edit">
-            //       {/* <Edit /> */}
-            //       Edit
-            //     </button>
-
-            //     <button className="controls__delete">
-            //       {/* <Delete /> */}
-            //       Delete
-            //     </button>
-            //   </div>
-            // </div>
           ))}
         </div>
       </div>

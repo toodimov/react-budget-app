@@ -58,6 +58,7 @@
   .controls {
     margin-left: auto;
 
+    a,
     button {
       display: inline-flex;
       align-items: center;
@@ -76,7 +77,7 @@
     }
 
     &__edit {
-      // color: $color__error;
+      color: $color__black;
       &:hover {
         background: rgba(0, 0, 0, 0.1);
       }
