@@ -1,0 +1,19 @@
+.button {
+  display: inline-block;
+  padding: 12px 32px;
+  border: 0;
+  // background-color: #fff;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  font-weight: 600;
+  color: $color__black;
+  border-radius: 0.8rem;
+  transition: all 0.3s ease;
+
+  cursor: pointer;
+
+  &.is-primary {
+    color: $color__white;
+    background-color: $color__primary;
+  }
+}

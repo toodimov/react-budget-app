@@ -1,0 +1,97 @@
+.dashboard {
+  &__budget {
+    padding: 6rem 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 4rem;
+  }
+}
+
+.dashboard__nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+
+  &__filter {
+    .button {
+      box-sizing: border-box;
+      background: $color__white;
+
+      &.is-active {
+        border: 1px solid $color__primary;
+      }
+    }
+  }
+}
+
+.dashboard__transaction__item {
+  display: flex;
+  align-items: center;
+
+  padding: 1.2rem 2.4rem;
+  background-color: #f8f8fd;
+  border-radius: 0.8rem;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+
+  p {
+    max-width: 37rem;
+    width: 100%;
+    margin-right: 4rem;
+  }
+
+  span {
+    padding: 0.4rem 1.6rem;
+    border-radius: 10rem;
+
+    &.expense {
+      color: $color__error;
+      background: rgba(220, 20, 28, 0.1);
+    }
+    &.income {
+      color: $color__success;
+      background: rgba(4, 132, 76, 0.1);
+    }
+  }
+
+  .controls {
+    margin-left: auto;
+
+    button {
+      display: inline-flex;
+      align-items: center;
+      @extend %body-text-small;
+      padding: 0.8rem 1.6rem 0.8rem 1.2rem;
+      font-weight: 500;
+      border-radius: 0.8rem;
+      background-color: transparent;
+      border: 0;
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      svg {
+        margin-right: 0.4rem;
+      }
+    }
+
+    &__edit {
+      // color: $color__error;
+      &:hover {
+        background: rgba(0, 0, 0, 0.1);
+      }
+    }
+    &__delete {
+      color: $color__error;
+      svg {
+        path {
+          fill: $color__error;
+        }
+      }
+
+      &:hover {
+        background: rgba(220, 20, 28, 0.1);
+      }
+    }
+  }
+}
