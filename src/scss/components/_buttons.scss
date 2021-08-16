@@ -15,10 +15,10 @@
 
   &.is-primary {
     color: $color__white;
-    background-color: $color__primary;
+    @include button-bg($color__primary);
   }
   &.is-secondary {
     color: $color__black;
-    background-color: rgba(0, 0, 0, 0.1);
+    @include button-bg($color__gray10);
   }
 }
