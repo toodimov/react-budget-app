@@ -1,13 +1,38 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useContext } from "react";
+import { useState, useEffect } from "react";
 
 import Header from "./../components/Header";
+import { TransactionContext } from "../contexts/TransactionContext";
+import { getDoc } from "../services/firestoreApi";
+import { COLLECTIONS } from "../static/constants";
+import AddNewTransaction from "./AddNewTransaction";
+import { auth } from "../config";
 
 const EditTransaction = () => {
+  const { id } = useParams();
+  const [data, setData] = useState(null);
+
+  // const context = useContext(TransactionContext);
+
+  const { USERS, TRANSACTIONS } = COLLECTIONS;
+
+  useEffect(() => {
+    getDoc(`${USERS}/${auth.currentUser.uid}/${TRANSACTIONS}`, id).then(
+      (data) => {
+        console.log("data", data);
+        setData(data);
+      }
+    );
+  }, []);
+
   return (
     <div className="transaction-page">
-      <Header />
+      {/* <Header /> */}
 
-      <div className="transaction-page__wrapper wrapper">
+      {data && <AddNewTransaction data={data} />}
+
+      {/* <div className="transaction-page__wrapper wrapper">
         <h1>Edit Transaction</h1>
 
         <form className="form">
@@ -70,6 +95,7 @@ const EditTransaction = () => {
           </div>
         </form>
       </div>
+     */}
     </div>
   );
 };

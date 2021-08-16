@@ -1,8 +1,8 @@
-const TotalExpense = () => {
+const TotalExpense = ({ amount }) => {
   return (
     <div>
       <h6>Total Expense</h6>
-      <h1 className="text--danger">€100</h1>
+      <h1 className="text--danger">€{amount}</h1>
     </div>
   );
 };

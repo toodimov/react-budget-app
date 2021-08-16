@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { auth } from "../config";
 
 const Header = () => {
+  const handleLogout = () => {
+    auth.signOut();
+  };
+
   return (
     <header className="header">
       <div className="wrapper">
@@ -8,9 +13,9 @@ const Header = () => {
           <h3>Budget App</h3>
         </Link>
         {/* <button className="button"></button> */}
-        <Link to="/login" className="button">
+        <button onClick={handleLogout} className="button">
           Log Out
-        </Link>
+        </button>
       </div>
     </header>
   );
