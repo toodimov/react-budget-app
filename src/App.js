@@ -9,11 +9,9 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import AddNewTransaction from "./pages/AddNewTransaction";
 import EditTransaction from "./pages/EditTransaction";
-import { TransactionProvider } from "./contexts/TransactionContext";
 import { auth } from "./config";
 import { useState } from "react";
 import Header from "./components/Header";
-import { LinearProgress } from "@material-ui/core";
 
 const Authenticated = () => {
   return (
