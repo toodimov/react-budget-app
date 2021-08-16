@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Lottie from "react-lottie";
 // import LoginAnimation from "./../lotties/money-tree";
 import LoginAnimation from "./../lotties/70357-expenses-calculation.json";
