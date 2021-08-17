@@ -8,6 +8,7 @@ export const useCollection = (path) => {
 
   useEffect(() => {
     setLoading(true);
+
     const unsubscribe = db
       .collection(path)
       .orderBy("createdAt", "desc")
@@ -28,7 +29,7 @@ export const useCollection = (path) => {
       );
 
     return unsubscribe;
-  }, []);
+  }, [path]);
 
   return { loading, error, data };
 };

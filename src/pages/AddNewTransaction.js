@@ -1,22 +1,22 @@
 import { Link, Redirect } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
-import Header from "./../components/Header";
+// import Header from "./../components/Header";
 import { createDoc, setAndMergeDoc } from "../services/firestoreApi";
 import { COLLECTIONS } from "../static/constants";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { auth, Timestamp } from "../config";
 
 const AddNewTransaction = ({ data }) => {
   const {
     handleSubmit,
     formState: { errors },
-    register,
+    // register,
     control,
   } = useForm();
 
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
 
   const [type, setType] = useState(data ? data.type : "expense");
 
@@ -51,10 +51,10 @@ const AddNewTransaction = ({ data }) => {
     return <Redirect to="/" />;
   }
 
-  const setTransactionType = () => {
-    console.log("typeee");
-    setType("expense");
-  };
+  // const setTransactionType = () => {
+  //   console.log("typeee");
+  //   setType("expense");
+  // };
 
   console.log("data", data);
 
@@ -101,20 +101,8 @@ const AddNewTransaction = ({ data }) => {
                 value={type}
                 onChange={() => setType("income")}
                 checked={type === "income"}
-                // {...register("type")}
               />
-              {/* <Controller
-                name="type"
-                control={control}
-                render={({ onChange, value }) => (
-                  <input
-                    type="radio"
-                    value={value}
-                    onChange={(e) => onChange(e.targer.value)}
-                    // checked={data.type === "income"}
-                  />
-                )}
-              /> */}
+
               <label htmlFor="income">
                 <span></span>Income
               </label>
@@ -128,6 +116,7 @@ const AddNewTransaction = ({ data }) => {
               name="title"
               control={control}
               defaultValue={data?.title || ""}
+              rules={{ required: true }}
               render={({ field }) => <input {...field} />}
             />
           </div>
@@ -146,9 +135,11 @@ const AddNewTransaction = ({ data }) => {
               name="amount"
               control={control}
               defaultValue={data?.amount || ""}
+              rules={{ required: true }}
               render={({ field }) => <input type="number" {...field} />}
             />
           </div>
+          {errors.rules && <p>{errors.rules.message}</p>}
 
           <div className="form__buttons">
             <button
@@ -156,13 +147,14 @@ const AddNewTransaction = ({ data }) => {
               type="submit"
               className="button is-primary"
             >
-              {data ? "Edit" : "Add New Transaction"}
+              {data ? "Update Transaction" : "Add New Transaction"}
             </button>
             <Link to="/" className="button is-secondary">
               Cancel
             </Link>
           </div>
         </form>
+        {error && <p>{error.message}</p>}
       </div>
     </div>
   );

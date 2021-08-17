@@ -8,7 +8,7 @@ import { auth } from "../config";
 import { useCollection } from "../hooks/useCollection";
 import { COLLECTIONS } from "../static/constants";
 import { calculateBalance } from "../utils/calculateBalance";
-import Header from "./../components/Header";
+// import Header from "./../components/Header";
 
 // const transaction = [
 //   {
