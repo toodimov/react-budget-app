@@ -31,7 +31,9 @@ const Login = () => {
 
   return (
     <div className="login">
-      <Lottie options={defaultOptions} width={510} />
+      <h1>Welcome to Budget App</h1>
+      <p>To use the app proceed with google login</p>
+      <Lottie options={defaultOptions} width={320} />
       <button onClick={handleGoogleClick} className="button" to="/">
         <Google />
         Continue with Google

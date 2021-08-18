@@ -15,10 +15,11 @@
   &__filter {
     .button {
       box-sizing: border-box;
+      border: 1px solid transparent;
       background: $color__white;
 
       &.is-active {
-        border: 1px solid $color__primary;
+        border-color: $color__primary;
       }
     }
   }

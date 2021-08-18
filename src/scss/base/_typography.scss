@@ -10,6 +10,9 @@ h6 {
   font-weight: 600;
   text-transform: uppercase;
 }
+p {
+  @extend %body-text;
+}
 
 .text--danger {
   color: $color__error;
